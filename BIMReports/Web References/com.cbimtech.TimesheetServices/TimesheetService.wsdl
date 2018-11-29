@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://services.cbimtech.com/WebServices/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://services.cbimtech.com/WebServices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://services.cbimtech.com/WebServices/">
+      <s:element name="DanhsachTimesheetTheoProjectID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DanhsachTimesheetTheoProjectIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DanhsachTimesheetTheoProjectIDResult" type="tns:ArrayOfTimesheetOutput" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTimesheetOutput">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TimesheetOutput" nillable="true" type="tns:TimesheetOutput" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TimesheetOutput">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecordDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorkType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkGroup" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Hour" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="OT" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DanhsachTimesheetTheoMemberID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="memberid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DanhsachTimesheetTheoMemberIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DanhsachTimesheetTheoMemberIDResult" type="tns:ArrayOfTimesheetOutput" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WorkNameList">
+        <s:complexType />
+      </s:element>
+      <s:element name="WorkNameListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WorkNameListResult" type="tns:ArrayOfWorkNameOutput" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWorkNameOutput">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorkNameOutput" nillable="true" type="tns:WorkNameOutput" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorkNameOutput">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WorkID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorkName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkGroup" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FindWorkNameByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindWorkNameByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindWorkNameByIDResult" type="tns:WorkNameOutput" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindWorkInGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="groupID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindWorkInGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindWorkInGroupResult" type="tns:ArrayOfWorkNameOutput" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddWorkDone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="enity" type="tns:TimesheetInput" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TimesheetInput">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecordDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Hour" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OT" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddWorkDoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddWorkDoneResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DanhsachTimesheetTheoProjectIDSoapIn">
+    <wsdl:part name="parameters" element="tns:DanhsachTimesheetTheoProjectID" />
+  </wsdl:message>
+  <wsdl:message name="DanhsachTimesheetTheoProjectIDSoapOut">
+    <wsdl:part name="parameters" element="tns:DanhsachTimesheetTheoProjectIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DanhsachTimesheetTheoMemberIDSoapIn">
+    <wsdl:part name="parameters" element="tns:DanhsachTimesheetTheoMemberID" />
+  </wsdl:message>
+  <wsdl:message name="DanhsachTimesheetTheoMemberIDSoapOut">
+    <wsdl:part name="parameters" element="tns:DanhsachTimesheetTheoMemberIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WorkNameListSoapIn">
+    <wsdl:part name="parameters" element="tns:WorkNameList" />
+  </wsdl:message>
+  <wsdl:message name="WorkNameListSoapOut">
+    <wsdl:part name="parameters" element="tns:WorkNameListResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindWorkNameByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:FindWorkNameByID" />
+  </wsdl:message>
+  <wsdl:message name="FindWorkNameByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:FindWorkNameByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindWorkInGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:FindWorkInGroup" />
+  </wsdl:message>
+  <wsdl:message name="FindWorkInGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:FindWorkInGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddWorkDoneSoapIn">
+    <wsdl:part name="parameters" element="tns:AddWorkDone" />
+  </wsdl:message>
+  <wsdl:message name="AddWorkDoneSoapOut">
+    <wsdl:part name="parameters" element="tns:AddWorkDoneResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TimesheetServiceSoap">
+    <wsdl:operation name="DanhsachTimesheetTheoProjectID">
+      <wsdl:input message="tns:DanhsachTimesheetTheoProjectIDSoapIn" />
+      <wsdl:output message="tns:DanhsachTimesheetTheoProjectIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DanhsachTimesheetTheoMemberID">
+      <wsdl:input message="tns:DanhsachTimesheetTheoMemberIDSoapIn" />
+      <wsdl:output message="tns:DanhsachTimesheetTheoMemberIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WorkNameList">
+      <wsdl:input message="tns:WorkNameListSoapIn" />
+      <wsdl:output message="tns:WorkNameListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindWorkNameByID">
+      <wsdl:input message="tns:FindWorkNameByIDSoapIn" />
+      <wsdl:output message="tns:FindWorkNameByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindWorkInGroup">
+      <wsdl:input message="tns:FindWorkInGroupSoapIn" />
+      <wsdl:output message="tns:FindWorkInGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddWorkDone">
+      <wsdl:input message="tns:AddWorkDoneSoapIn" />
+      <wsdl:output message="tns:AddWorkDoneSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TimesheetServiceSoap" type="tns:TimesheetServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DanhsachTimesheetTheoProjectID">
+      <soap:operation soapAction="http://services.cbimtech.com/WebServices/DanhsachTimesheetTheoProjectID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DanhsachTimesheetTheoMemberID">
+      <soap:operation soapAction="http://services.cbimtech.com/WebServices/DanhsachTimesheetTheoMemberID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorkNameList">
+      <soap:operation soapAction="http://services.cbimtech.com/WebServices/WorkNameList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindWorkNameByID">
+      <soap:operation soapAction="http://services.cbimtech.com/WebServices/FindWorkNameByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindWorkInGroup">
+      <soap:operation soapAction="http://services.cbimtech.com/WebServices/FindWorkInGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWorkDone">
+      <soap:operation soapAction="http://services.cbimtech.com/WebServices/AddWorkDone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TimesheetServiceSoap12" type="tns:TimesheetServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DanhsachTimesheetTheoProjectID">
+      <soap12:operation soapAction="http://services.cbimtech.com/WebServices/DanhsachTimesheetTheoProjectID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DanhsachTimesheetTheoMemberID">
+      <soap12:operation soapAction="http://services.cbimtech.com/WebServices/DanhsachTimesheetTheoMemberID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorkNameList">
+      <soap12:operation soapAction="http://services.cbimtech.com/WebServices/WorkNameList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindWorkNameByID">
+      <soap12:operation soapAction="http://services.cbimtech.com/WebServices/FindWorkNameByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindWorkInGroup">
+      <soap12:operation soapAction="http://services.cbimtech.com/WebServices/FindWorkInGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWorkDone">
+      <soap12:operation soapAction="http://services.cbimtech.com/WebServices/AddWorkDone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TimesheetService">
+    <wsdl:port name="TimesheetServiceSoap" binding="tns:TimesheetServiceSoap">
+      <soap:address location="http://services.cbimtech.com/WebServices/TimesheetService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TimesheetServiceSoap12" binding="tns:TimesheetServiceSoap12">
+      <soap12:address location="http://services.cbimtech.com/WebServices/TimesheetService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

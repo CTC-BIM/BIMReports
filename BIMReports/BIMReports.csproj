@@ -35,8 +35,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -49,12 +61,61 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=1.4.17.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.1.4.17\lib\net\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Assets\AppResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainProgram.xaml.cs">
+      <DependentUpon>MainProgram.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Program.xaml.cs">
+      <DependentUpon>Program.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.cbimtech.MemberServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.cbimtech.ProjectServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.cbimtech.TimesheetServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\localhost_UploadFile\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Page Include="Forms\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\MainProgram.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Program.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -82,17 +143,204 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Assets\AppResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Web References\com.cbimtech.MemberServices\MemberOutput.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.cbimtech.MemberServices\MemberService.wsdl" />
+    <None Include="Web References\com.cbimtech.MemberServices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.cbimtech.ProjectServices\DuAnOutput.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.cbimtech.ProjectServices\ProjectService.wsdl" />
+    <None Include="Web References\com.cbimtech.ProjectServices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.cbimtech.TimesheetServices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.cbimtech.TimesheetServices\TimesheetOutput.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.cbimtech.TimesheetServices\TimesheetService.wsdl" />
+    <None Include="Web References\com.cbimtech.TimesheetServices\WorkNameOutput.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost_UploadFile\FilesUploadService.wsdl" />
+    <None Include="Web References\localhost_UploadFile\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:52130/WebServices/FilesUploadService.asmx%3fop=UploadFiles">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\localhost_UploadFile\</RelPath>
+      <UpdateFromURL>http://localhost:52130/WebServices/FilesUploadService.asmx%3fop=UploadFiles</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BIMReports_localhost_UploadFile_FilesUploadService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://services.cbimtech.com/WebServices/MemberService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.cbimtech.MemberServices\</RelPath>
+      <UpdateFromURL>http://services.cbimtech.com/WebServices/MemberService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BIMReports_com_cbimtech_MemberServices_MemberService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://services.cbimtech.com/WebServices/ProjectService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.cbimtech.ProjectServices\</RelPath>
+      <UpdateFromURL>http://services.cbimtech.com/WebServices/ProjectService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BIMReports_com_cbimtech_ProjectServices_ProjectService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://services.cbimtech.com/WebServices/TimesheetService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.cbimtech.TimesheetServices\</RelPath>
+      <UpdateFromURL>http://services.cbimtech.com/WebServices/TimesheetService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BIMReports_com_cbimtech_TimesheetServices_TimesheetService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\localhost_UploadFile\FilesUploadService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.cbimtech.MemberServices\MemberService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.cbimtech.ProjectServices\ProjectService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.cbimtech.TimesheetServices\TimesheetService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BIMreportLogo.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CTClogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\iconfinder_Administrative_Tools_100079.ico" />
+    <Resource Include="Resources\Icons\iconfinder_Foobar_99702.ico" />
+    <Resource Include="Resources\Icons\iconfinder_Security_Approved_100127.ico" />
+    <Resource Include="Resources\Icons\iconfinder_Services_99906.ico" />
+    <Resource Include="Resources\Icons\iconfinder_User_Accounts_alt_100297.ico" />
+    <Resource Include="Resources\Icons\iconfinder_User_No-Frame_99798.ico" />
+    <Resource Include="Resources\Icons\iconfinder_Windows_Media_Player_alt_100213.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\iconfinder_Chuzzle_99907.ico" />
+    <Resource Include="Resources\Icons\iconfinder_Excel_alt_1_99766.ico" />
+    <Resource Include="Resources\Icons\iconfinder_Info_99891.ico" />
+    <Resource Include="Resources\Icons\iconfinder_Messaging_alt_99932.ico" />
+    <Resource Include="Resources\Icons\iconfinder_Search_100271.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Sadman.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BIMreportLogo2.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\setting.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\lg.triple-gears-loading-icon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DarkIcons.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Icons\xaml\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\dark\appbar.chevron.left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\light\appbar.chevron.left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\dark\appbar.magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\light\appbar.layout.collapse.left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\dark\appbar.layout.collapse.left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\dark\appbar.list.check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\dark\appbar.layout.expand.right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\dark\appbar.interface.list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\dark\appbar.journal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\dark\appbar.fingerprint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UserImg\Chi Nhan.png" />
+    <Resource Include="Resources\UserImg\Manh Tu.jpg" />
+    <Resource Include="Resources\UserImg\Mong Diep.png" />
+    <Resource Include="Resources\UserImg\NguyenMinhHieu.jpg" />
+    <Resource Include="Resources\UserImg\NguyenNgocHieu.jpg" />
+    <Resource Include="Resources\UserImg\NguyenVuKy.jpg" />
+    <Resource Include="Resources\UserImg\Nie.jpg" />
+    <Resource Include="Resources\UserImg\Quoc Tuan.jpg" />
+    <Resource Include="Resources\UserImg\Tran Viet Thang.jpg" />
+    <Resource Include="Resources\UserImg\Truong Giang.png" />
+    <Resource Include="Resources\UserImg\Truong tan trung.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UserImg\Trong Luat.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,213 @@
+﻿<Window x:Class="BIMReports.Forms.Program"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:local="clr-namespace:BIMReports.Forms"
+        mc:Ignorable="d"
+        Title="BIM report" Height="920" Width="1440">
+    <DockPanel>
+        <!--1. Top Menu-->
+        <WrapPanel Name="TopMenu" MaxHeight="200" DockPanel.Dock="Top" VerticalAlignment="Top" Background="#FF2C2B2B" >
+            <Image Name="imgLogo" Height="40" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/BIMReports;component/Resources/BIMreportLogo2.PNG"/>
+            <Button Name="cmdHidePanel" Height="30" Margin="5,0,0,0" Background="#FF2C2B2B" BorderBrush="#FF2C2B2B" Click="CmdHidePanel_Click">
+                <Image Name="imgPanelHide" Source="/BIMReports;component/Resources/Icons/dark/appbar.layout.collapse.left.png" OpacityMask="#FFFFFCFC"></Image>
+            </Button>
+            <Image Width="30" Height="30" Source="/BIMReports;component/Resources/Icons/dark/appbar.magnify.png"></Image>
+            <TextBox Name="txtSearch" Margin="-5,0,0,0" TextBlock.Foreground="White" VerticalContentAlignment="Center"  Grid.Column="0" Height="25" Width="100" Background="Black" SelectionBrush="LawnGreen" 
+                     GotFocus="TxtSearch_GotFocus" 
+                     LostFocus="TxtSearch_LostFocus"
+                     KeyUp="TxtSearch_KeyUp"></TextBox>
+
+            <Grid DockPanel.Dock="Right" MaxWidth="50">
+                <Image Name="imgOption" HorizontalAlignment="Right" Grid.Row="2" MaxHeight="20" Margin="0,0,0,0" gif:ImageBehavior.RepeatBehavior="5x"  gif:ImageBehavior.AnimatedSource="/BIMReports;component/Resources/Icons/lg.triple-gears-loading-icon.gif" />
+            </Grid>
+        </WrapPanel>
+        <!--End Top Menu-->
+
+        <!--2. Left Panel-->
+        <Grid Name="LeftPanel" Background="Black" DockPanel.Dock="Left" HorizontalAlignment="Left" Width="150">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <!--UserImage-->
+                <RowDefinition Height="60"/>
+                <!--Dashboard-->
+                <RowDefinition Height="60"/>
+                <!--TodoList-->
+                <RowDefinition Height="60"/>
+                <!--Report-->
+                <RowDefinition Height="60"/>
+                <!--Clash detection-->
+                <RowDefinition Height="15"/>
+            </Grid.RowDefinitions>
+            <!--User Image-->
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="15"/>
+                </Grid.RowDefinitions>
+                <Ellipse Width="70" Height="70" Margin="0,5,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush x:Name="imgUser" ImageSource="/BIMReports;component/Resources/UserImg/Trong Luat.jpg"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock Name="txtUserName" Grid.Row="1" TextBlock.Foreground="Red" Margin="10,0,0,0" HorizontalAlignment="Center">UserName</TextBlock>
+            </Grid>
+
+            <!--DashBoard Button -->
+            <Button Grid.Row="1" Margin="0,5,0,0" Width="150" BorderBrush="Black" Background="Black" FocusVisualStyle="{DynamicResource MouseOverButton}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Grid.Row="0" Source="/BIMReports;component/Resources/Icons/dark/appbar.list.check.png"/>
+                    <TextBlock Grid.Column="2" TextBlock.Foreground="White" Margin="10,0,0,0" VerticalAlignment="Center">DashBoard</TextBlock>
+                </Grid>
+            </Button>
+
+            <!--Todo Button -->
+            <Button Grid.Row="2" Margin="0,5,0,0" Width="150" BorderBrush="Black" Background="Black" FocusVisualStyle="{DynamicResource MouseOverButton}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Grid.Row="0" Source="/BIMReports;component/Resources/Icons/dark/appbar.interface.list.png"/>
+                    <TextBlock Grid.Column="2" TextBlock.Foreground="White" Margin="10,0,0,0" VerticalAlignment="Center">Todolist</TextBlock>
+                </Grid>
+            </Button>
+
+            <!--Report Button -->
+            <Button Background="Black" Grid.Row="3" Margin="0,5,0,0" Width="150" BorderBrush="Black">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Grid.Row="0" Source="/BIMReports;component/Resources/Icons/dark/appbar.journal.png"/>
+                    <TextBlock Grid.Column="1" TextBlock.Foreground="White" Margin="10,0,0,0" VerticalAlignment="Center">Report</TextBlock>
+                </Grid>
+            </Button>
+
+            <!--Clash Button -->
+            <Button Background="Black" Grid.Row="4" Margin="0,5,0,0" Width="150" BorderBrush="Black">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Grid.Row="0" Source="/BIMReports;component/Resources/Icons/dark/appbar.fingerprint.png"/>
+                    <TextBlock Grid.Column="1" TextBlock.Foreground="White" Margin="10,0,0,0" VerticalAlignment="Center">Clash Detection</TextBlock>
+                </Grid>
+            </Button>
+
+        </Grid>
+        <!--End Left Panel-->
+
+        <!--3. StatusBar-->
+        <StatusBar DockPanel.Dock="Bottom" Background="DarkKhaki"  Height="20" VerticalAlignment="Bottom">
+            <Label>status bar</Label>
+        </StatusBar>
+        <!--End StatusBar-->
+
+        <!--Main Content-->
+        <Grid>
+            <TabControl HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" FontSize="11">
+                <!--Dashboard Tab Content-->
+                <TabItem Header="Dashboard">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Background="LightGray" TextBlock.Foreground="WhiteSmoke" FontSize="25" TextAlignment="Center">NEWS</TextBlock>
+                            <TextBlock Grid.Column="1" Background="DarkBlue" TextBlock.Foreground="WhiteSmoke" FontSize="25" TextAlignment="Center">MESSAGES</TextBlock>
+                            <TextBlock Grid.Column="2" Background="DarkGoldenrod" TextBlock.Foreground="WhiteSmoke" FontSize="25" TextAlignment="Center">USER</TextBlock>
+                            <TextBlock Grid.Column="3" Background="DarkMagenta" TextBlock.Foreground="WhiteSmoke" FontSize="25" TextAlignment="Center">DATE TIME WATCH</TextBlock>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Background="white" TextBlock.Foreground="Black" FontSize="16" TextAlignment="Left">Member Activity</TextBlock>
+                            <TextBlock Grid.Column="1" Background="LightBlue" TextBlock.Foreground="Black" FontSize="16" TextAlignment="Left">Report in Week</TextBlock>
+                            <TextBlock Grid.Column="2" Background="LightCoral" TextBlock.Foreground="PapayaWhip" FontSize="16" TextAlignment="Left">Clash Detection In Week</TextBlock>
+                        </Grid>
+
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Background="LightGreen" TextBlock.Foreground="WhiteSmoke" FontSize="25" TextAlignment="Center"></TextBlock>
+                            <TextBlock Grid.Column="1" Background="DarkViolet" TextBlock.Foreground="WhiteSmoke" FontSize="25" TextAlignment="Center"></TextBlock>
+                        </Grid>
+
+                        <Grid Grid.Row="3">
+                            <TextBlock Background="DarkOliveGreen" Grid.Row="3" TextBlock.Foreground="WhiteSmoke" FontSize="25" TextAlignment="Center"></TextBlock>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <!-- End Dashboard Content-->
+
+                <!--Report Content-->
+                <TabItem Header="Todolist">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="LightGray">
+                            <TextBlock TextBlock.Foreground="DarkBlue" FontSize="18" TextAlignment="Center">To do</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Background="LightCoral">
+                            <TextBlock TextBlock.Foreground="DarkBlue" FontSize="18" TextAlignment="Center">Doing</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2" Background="LightGreen">
+                            <TextBlock TextBlock.Foreground="DarkBlue" FontSize="18" TextAlignment="Center">Done</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3" Background="LightGray">
+                            <TextBlock TextBlock.Foreground="DarkBlue" FontSize="18" TextAlignment="Center">Menu</TextBlock>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <!--End Report Content-->
+
+                <!--Report Content-->
+                <TabItem Header="Report">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Project List" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="68"/>
+                        <TreeView Name="TreeProject" HorizontalAlignment="Left" Height="168" Margin="10,40,0,0" VerticalAlignment="Top" Width="102"/>
+
+                    </Grid>
+                </TabItem>
+                <!--End Report Content-->
+                <TabItem Header="Clash detection">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+
+            </TabControl>
+
+        </Grid>
+        <!--End Main Content-->
+    </DockPanel>
+</Window>

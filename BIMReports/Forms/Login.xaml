@@ -1,0 +1,24 @@
+﻿<Window x:Class="BIMReports.Forms.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:local="clr-namespace:BIMReports.Forms"
+        mc:Ignorable="d"
+        Title="" Height="223" Width="395">
+    <Grid Margin="0,0,0,0">
+        <Image Name="Logo" HorizontalAlignment="Left" Height="60" Margin="108,10,0,0" VerticalAlignment="Top" Width="120" Source="/BIMReports;component/Resources/CTClogo.png" RenderTransformOrigin="-0.809,0.721"/>
+        <Grid Margin="0,0,0,0" Grid.ColumnSpan="2">
+            <Image HorizontalAlignment="Left" Height="64" Margin="292,72,0,0" VerticalAlignment="Top" Width="66" Source="/BIMReports;component/Resources/Icons/iconfinder_Chuzzle_99907.ico" MouseDown="Image_MouseDown">
+            </Image>
+            <Image HorizontalAlignment="Left" Height="29" Margin="91,107,0,0" VerticalAlignment="Top" Width="37" Source="/BIMReports;component/Resources/Icons/iconfinder_Security_Approved_100127.ico"/>
+            <TextBox Name="txtUserName" HorizontalAlignment="Left" Height="30" Margin="96,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191"/>
+            <PasswordBox Name="txtPass" HorizontalAlignment="Left" Margin="123,107,0,0" VerticalAlignment="Top" Width="164" Height="29"/>
+            <Image gif:ImageBehavior.RepeatBehavior="3x" gif:ImageBehavior.AnimatedSource="/BIMReports;component/Resources/Icons/Sadman.gif" HorizontalAlignment="Left" Height="91" Margin="-22,63,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.455,0.169"/>
+
+
+        </Grid>
+    </Grid>
+
+</Window>

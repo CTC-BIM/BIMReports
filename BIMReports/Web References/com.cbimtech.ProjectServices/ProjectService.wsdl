@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://services.cbimtech.com/WebServices/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://services.cbimtech.com/WebServices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://services.cbimtech.com/WebServices/">
+      <s:element name="GetProjectList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProjectListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProjectListResult" type="tns:ArrayOfDuAnOutput" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDuAnOutput">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DuAnOutput" nillable="true" type="tns:DuAnOutput" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DuAnOutput">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaDuAn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TenDuAn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BIMmember" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BIMMEP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ARCmodel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STRmodel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MEPmodel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="propjectStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="projectPhase" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="projectScope" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TimDuAnTheoTen">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimDuAnTheoTenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimDuAnTheoTenResult" type="tns:DuAnOutput" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimDuAnTheoId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimDuAnTheoIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimDuAnTheoIdResult" type="tns:DuAnOutput" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimDuAnTheoScope">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="scope" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimDuAnTheoScopeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimDuAnTheoScopeResult" type="tns:ArrayOfDuAnOutput" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetProjectListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProjectList" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProjectListResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimDuAnTheoTenSoapIn">
+    <wsdl:part name="parameters" element="tns:TimDuAnTheoTen" />
+  </wsdl:message>
+  <wsdl:message name="TimDuAnTheoTenSoapOut">
+    <wsdl:part name="parameters" element="tns:TimDuAnTheoTenResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimDuAnTheoIdSoapIn">
+    <wsdl:part name="parameters" element="tns:TimDuAnTheoId" />
+  </wsdl:message>
+  <wsdl:message name="TimDuAnTheoIdSoapOut">
+    <wsdl:part name="parameters" element="tns:TimDuAnTheoIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimDuAnTheoScopeSoapIn">
+    <wsdl:part name="parameters" element="tns:TimDuAnTheoScope" />
+  </wsdl:message>
+  <wsdl:message name="TimDuAnTheoScopeSoapOut">
+    <wsdl:part name="parameters" element="tns:TimDuAnTheoScopeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProjectServiceSoap">
+    <wsdl:operation name="GetProjectList">
+      <wsdl:input message="tns:GetProjectListSoapIn" />
+      <wsdl:output message="tns:GetProjectListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoTen">
+      <wsdl:input message="tns:TimDuAnTheoTenSoapIn" />
+      <wsdl:output message="tns:TimDuAnTheoTenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoId">
+      <wsdl:input message="tns:TimDuAnTheoIdSoapIn" />
+      <wsdl:output message="tns:TimDuAnTheoIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoScope">
+      <wsdl:input message="tns:TimDuAnTheoScopeSoapIn" />
+      <wsdl:output message="tns:TimDuAnTheoScopeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProjectServiceSoap" type="tns:ProjectServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProjectList">
+      <soap:operation soapAction="http://services.cbimtech.com/WebServices/GetProjectList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoTen">
+      <soap:operation soapAction="http://services.cbimtech.com/WebServices/TimDuAnTheoTen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoId">
+      <soap:operation soapAction="http://services.cbimtech.com/WebServices/TimDuAnTheoId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoScope">
+      <soap:operation soapAction="http://services.cbimtech.com/WebServices/TimDuAnTheoScope" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProjectServiceSoap12" type="tns:ProjectServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProjectList">
+      <soap12:operation soapAction="http://services.cbimtech.com/WebServices/GetProjectList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoTen">
+      <soap12:operation soapAction="http://services.cbimtech.com/WebServices/TimDuAnTheoTen" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoId">
+      <soap12:operation soapAction="http://services.cbimtech.com/WebServices/TimDuAnTheoId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoScope">
+      <soap12:operation soapAction="http://services.cbimtech.com/WebServices/TimDuAnTheoScope" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProjectService">
+    <wsdl:port name="ProjectServiceSoap" binding="tns:ProjectServiceSoap">
+      <soap:address location="http://services.cbimtech.com/WebServices/ProjectService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProjectServiceSoap12" binding="tns:ProjectServiceSoap12">
+      <soap12:address location="http://services.cbimtech.com/WebServices/ProjectService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

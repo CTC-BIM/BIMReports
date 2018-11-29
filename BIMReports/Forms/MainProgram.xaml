@@ -1,0 +1,58 @@
+﻿<Window Name="frmMainProgram" x:Class="BIMReports.Forms.MainPrograme"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BIMReports.Forms"
+        mc:Ignorable="d"
+        Title="MainProgram" Height="920" Width="1440">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="805" Margin="92,28,0,0" VerticalAlignment="Top" Width="1330">
+            <TabItem Header="DashBoard">
+                <Grid Background="#FFECEFF3" Margin="10,0,0,0"/>
+            </TabItem>
+            <TabItem Header="MyWork">
+                <Grid Background="White"/>
+            </TabItem>
+            <TabItem Header="Report">
+                <Grid Background="White"/>
+            </TabItem>
+            <TabItem Header="Clash">
+                <Grid Background="White"/>
+            </TabItem>
+        </TabControl>
+        <StatusBar HorizontalAlignment="Left" Height="40" Margin="100,850,0,-1" VerticalAlignment="Top" Width="1322"/>
+        <Grid Margin="0,26,1332,765" Background="Black">
+            <Ellipse Margin="10" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="70" Stroke="Black" Width="72"></Ellipse>
+            <Image HorizontalAlignment="Center" Height="13" Margin="0,41,86,0" VerticalAlignment="Top" Width="14" Source="/BIMReports;component/Resources/Icons/iconfinder_User_Accounts_alt_100297.ico"/>
+        </Grid>
+        <ToolBarPanel Width="100" Margin="0,110,1332,10" HorizontalAlignment="Center" Background="#FF3A3F4D">
+            <Button Name="cmdDashBoard" Margin="0,3,0,0" Content="Dashboard" Background="#FF3A3F4D">
+                <Button.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8F8D8D" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Foreground>
+            </Button>
+            <Button Name="cmdProject" Margin="0,3,0,0" Content="Projects" Background="#FF3A3F4D">
+                <Button.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8F8D8D" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Foreground>
+            </Button>
+            <Button Name="cmdReport" Margin="0,3,0,0" Content="Reports" Background="#FF3A3F4D">
+                <Button.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8F8D8D" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Foreground>
+            </Button>
+        </ToolBarPanel>
+        <Menu HorizontalAlignment="Left" Height="28" Margin="90,0,0,0" VerticalAlignment="Top" Width="1340" Background="#FF080930"/>
+        <Image HorizontalAlignment="Center" Height="28" VerticalAlignment="Top" Width="100" Source="/BIMReports;component/Resources/BIMreportLogo2.PNG" Margin="0,0,1332,0"/>
+    </Grid>
+</Window>
