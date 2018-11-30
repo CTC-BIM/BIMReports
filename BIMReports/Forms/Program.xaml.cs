@@ -1,7 +1,9 @@
-﻿using System;
+﻿using BIMReports.com.cbimtech.MemberServices;
+using BIMReports.com.cbimtech.ProjectServices;
+using BIMReports.com.cbimtech.TimesheetServices;
+using System;
+using System.Linq;
 using System.Windows;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 //Metro
 
 namespace BIMReports.Forms
@@ -11,18 +13,54 @@ namespace BIMReports.Forms
     /// </summary>
     public partial class Program : Window
     {
+        public static MemberOutput curMember = new MemberOutput();
+        public static string userName = "";
+        public static int userID = 0;
         public Program()
         {
             InitializeComponent();
+
+            userName = txtUserName.Text;
+            //userID = int.Parse(GetValue(this.txtUserID.Text));
             txtSearch.Text = "Search...";
-            FillData(true);
+            try
+            {
+                FillData(true, userName);
+            }
+            catch (System.Exception ex)
+            {
+                lblStatus.Content = "Không thể kế nối Server do " + ex.Message;
+            }
+
+
         }
 
-        private void FillData(bool isEnable)
+        private void FillData(bool isEnable, string userName)
         {
             if (isEnable)
             {
+                if (userName == null || userName.Trim() == "")
+                {
+                    lblStatus.Content = "Không tìm thấy User";
+                    return;
+                }
+                //Tạo Client connect to BIMteam Services
+                MemberService memberClient = new MemberService();
+                ProjectService projectService = new ProjectService();
+                TimesheetService timesheetService = new TimesheetService();
+                //Điền Dự án
+                var items = projectService.GetProjectList();
+                var myProjectList = items.Where(s => s.BIMmember == userName).ToList();
+                cmbMyProject.ItemsSource = items;
+                cmbMyProject.IsTextSearchEnabled = true;
+                cmbMyProject.DisplayMemberPath = "TenDuAn";
+                cmbMyProject.SelectedValuePath = "MaDuAn";
 
+
+                //Hủy kết nối
+                memberClient.Dispose();
+                projectService.Dispose();
+                timesheetService.Dispose();
             }
         }
 
@@ -51,7 +89,9 @@ namespace BIMReports.Forms
         {
 
         }
+
     }
 
-
+    
 }
+;

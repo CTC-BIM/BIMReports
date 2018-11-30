@@ -8,14 +8,14 @@
         Title="" Height="920" Width="1440">
 
     <Grid Margin="0,0,0,0">
-        <Grid x:Name="Content" Margin="-40,36,0,43" Background="#FFCDDDEE">
+        <Grid x:Name="Content" Margin="10,28,-50,51" Background="#FFCDDDEE">
             <Grid x:Name="grid_UploadFile" Margin="16,21,869,710">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0*"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Select Files Type" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="99" Grid.ColumnSpan="2"/>
-                <TextBlock x:Name="lblStatus" HorizontalAlignment="Left" Margin="10,121,0,-61" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475" FontStyle="Italic" Height="19" Foreground="#FFF10D0D" FontSize="9" Grid.ColumnSpan="2"/>
+                <TextBlock x:Name="lblStatus" HorizontalAlignment="Left" Margin="10,121,0,-97" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475" FontStyle="Italic" Height="55" Foreground="#FFF10D0D" FontSize="12" Grid.ColumnSpan="2"/>
                 <TextBox x:Name="txtFileAddress" HorizontalAlignment="Left" Height="57" Margin="109,43,0,-21" TextWrapping="Wrap" Text="filepath" VerticalAlignment="Top" Width="376" Grid.ColumnSpan="2"/>
                 <Button x:Name="cmdUpload" Content="Choose file and Upload" HorizontalAlignment="Left" Margin="344,10,0,0" VerticalAlignment="Top" Width="141" Height="23" Click="CmdUpload_Click" Grid.ColumnSpan="2"/>
                 <Label Content="Files Path:" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="66" Grid.ColumnSpan="2"/>

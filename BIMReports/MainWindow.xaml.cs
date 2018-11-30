@@ -5,6 +5,7 @@ using System.IO;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Windows;
+using BIMReports.com.cbimtech.FilesServices;
 
 namespace BIMReports
 {
@@ -117,8 +118,12 @@ namespace BIMReports
                 // get the exact file name from the path
                 String strFile = System.IO.Path.GetFileName(filename);
 
+                // create an instance fo the Local service
+                //localhost_UploadFile.FilesUploadService srv = new localhost_UploadFile.FilesUploadService();
+
                 // create an instance fo the web service
-                localhost_UploadFile.FilesUploadService srv = new localhost_UploadFile.FilesUploadService();
+                FilesUploadService  srv = new FilesUploadService();
+
                 // get the file information form the selected file
                 FileInfo fInfo = new FileInfo(filename);
 

@@ -14,5 +14,8 @@
     <Setting Name="BIMReports_com_cbimtech_TimesheetServices_TimesheetService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://services.cbimtech.com/WebServices/TimesheetService.asmx</Value>
     </Setting>
+    <Setting Name="BIMReports_com_cbimtech_FilesServices_FilesUploadService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://services.cbimtech.com/WebServices/FilesUploadService.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

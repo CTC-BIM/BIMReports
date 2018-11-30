@@ -1,8 +1,9 @@
 ﻿<Application x:Class="BIMReports.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:BIMReports"             
-             StartupUri="Forms/Program.xaml">
+             xmlns:local="clr-namespace:BIMReports" 
+             StartupUri="Forms/Login.xaml">
+             <!--StartupUri="Forms/Program.xaml">-->
     
     <!--Phần cần thêm-->
     <Application.Resources>

@@ -121,4 +121,10 @@
   <data name="BIMreportLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BIMreportLogo.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="UserID" xml:space="preserve">
+    <value>int</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>string</value>
+  </data>
 </root>

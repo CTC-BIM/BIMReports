@@ -9,7 +9,7 @@
         Title="BIM report" Height="920" Width="1440">
     <DockPanel>
         <!--1. Top Menu-->
-        <WrapPanel Name="TopMenu" MaxHeight="200" DockPanel.Dock="Top" VerticalAlignment="Top" Background="#FF2C2B2B" >
+        <WrapPanel Name="TopMenu" MaxHeight="200" DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="#FF2C2B2B" >
             <Image Name="imgLogo" Height="40" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/BIMReports;component/Resources/BIMreportLogo2.PNG"/>
             <Button Name="cmdHidePanel" Height="30" Margin="5,0,0,0" Background="#FF2C2B2B" BorderBrush="#FF2C2B2B" Click="CmdHidePanel_Click">
                 <Image Name="imgPanelHide" Source="/BIMReports;component/Resources/Icons/dark/appbar.layout.collapse.left.png" OpacityMask="#FFFFFCFC"></Image>
@@ -23,6 +23,7 @@
             <Grid DockPanel.Dock="Right" MaxWidth="50">
                 <Image Name="imgOption" HorizontalAlignment="Right" Grid.Row="2" MaxHeight="20" Margin="0,0,0,0" gif:ImageBehavior.RepeatBehavior="5x"  gif:ImageBehavior.AnimatedSource="/BIMReports;component/Resources/Icons/lg.triple-gears-loading-icon.gif" />
             </Grid>
+            
         </WrapPanel>
         <!--End Top Menu-->
 
@@ -40,6 +41,7 @@
                 <RowDefinition Height="60"/>
                 <!--Clash detection-->
                 <RowDefinition Height="15"/>
+                
             </Grid.RowDefinitions>
             <!--User Image-->
             <Grid Grid.Row="0">
@@ -52,7 +54,16 @@
                         <ImageBrush x:Name="imgUser" ImageSource="/BIMReports;component/Resources/UserImg/Trong Luat.jpg"/>
                     </Ellipse.Fill>
                 </Ellipse>
-                <TextBlock Name="txtUserName" Grid.Row="1" TextBlock.Foreground="Red" Margin="10,0,0,0" HorizontalAlignment="Center">UserName</TextBlock>
+                <Grid Grid.Row="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="90"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Name="txtUserID" Grid.Column="0" TextBlock.Foreground="Red" Margin="10,0,0,0" HorizontalAlignment="Left" Visibility="Visible">ID</TextBlock>
+                  <TextBox Name="txtUserName" Grid.Column="1" TextBlock.Foreground="Red" Margin="10,0,0,0" HorizontalAlignment="Center" Background="Black">
+                  </TextBox>  
+                </Grid>
+                
             </Grid>
 
             <!--DashBoard Button -->
@@ -108,7 +119,7 @@
 
         <!--3. StatusBar-->
         <StatusBar DockPanel.Dock="Bottom" Background="DarkKhaki"  Height="20" VerticalAlignment="Bottom">
-            <Label>status bar</Label>
+            <Label Name="lblStatus" TextBlock.Foreground="Black"></Label>
         </StatusBar>
         <!--End StatusBar-->
 
@@ -192,11 +203,28 @@
                 <!--Report Content-->
                 <TabItem Header="Report">
                     <Grid Background="#FFE5E5E5">
+                        <!--Report Content - columns-->
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
                             <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Project List" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="68"/>
-                        <TreeView Name="TreeProject" HorizontalAlignment="Left" Height="168" Margin="10,40,0,0" VerticalAlignment="Top" Width="102"/>
+                        </Grid.ColumnDefinitions>                        
+                        <Grid Grid.Column="0" Background="FloralWhite">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+                            <!--Project List-->
+                            <Grid Grid.Row="0" Background="White">
+                                <Label Content="Project" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Center"/>
+                                <ComboBox Name="cmbMyProject" IsTextSearchEnabled="True" TextBlock.Foreground="Black" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Center" Width="140"/>
+                            </Grid>
+                            <Grid Grid.Row="1" Background="Coral">
+                                <Label Content="Project Tree" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                                <TreeView Name="tvProjectTreeView" HorizontalAlignment="Left" Height="350" Margin="10,40,0,0" VerticalAlignment="Top" Width="102"/>
+                            </Grid>
+                        </Grid>
+                        
+                        
 
                     </Grid>
                 </TabItem>

@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BIMReports.com.cbimtech.MemberServices;
+using BIMReports.Models;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using WpfAnimatedGif;
-using BIMReports.com.cbimtech.MemberServices;
 
 namespace BIMReports.Forms
 {
@@ -24,29 +13,73 @@ namespace BIMReports.Forms
         public Login()
         {
             InitializeComponent();
-            GetMemberInfo(true);
-        }
-
-        private List<MemberOutput> GetMemberInfo(bool isEnable)
-        {
-            List<MemberOutput> listMember = new List<MemberOutput>();
-            MemberService client = new MemberService();
-            var items = client.DanhSachMember().ToList();
-            return listMember;
+            txtUserName.Focus();
         }
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
-        {            
-            LoginCheck();
-
+        {
+            lblStatus.Content = LoginCheck();
         }
+
         private string LoginCheck()
         {
-            
-            Program mainPrograme = new Program();
-            mainPrograme.ShowDialog();
-            mainPrograme.txtUserName.Text = "";
-            return "OK";
+            //RUN
+            //string userName = txtUserName.Text;
+            //string pass = txtPass.Password.ToString();
+
+            //TEST
+            string userName = "nhantc";
+            string pass = "123";
+
+            MemberOutput member = GetMember(true, userName, pass);
+            if (member != null)
+            {
+                //Đóng cửa sổ Login
+                WindowCollection windowCollection = new WindowCollection();
+                windowCollection = App.Current.Windows;
+                foreach (Window item in windowCollection)
+                {
+                    //MessageBox.Show(item.GetType().ToString());
+                    if (item.GetType().ToString() == "BIMReports.Forms.Login")
+                    {
+                        //MessageBox.Show("Chào mừng bạn " + member.SoftName, "BIMreport");
+                        //Mở chương trình chính
+                        Program mainPrograme = new Program();
+                        mainPrograme.txtUserName.Text = member.SoftName;
+                        mainPrograme.lblStatus.Content = member.UserName;
+                        item.Close();
+                        //mainPrograme.SetValue(, member.SoftName);
+                        //mainPrograme.txtUserName.Text = member.SoftName;
+                        mainPrograme.txtUserID.Text = member.ID.ToString();
+                        mainPrograme.DataContext = member;
+                        mainPrograme.ShowDialog();
+                        return "Login OK";
+                    }
+                }
+            }
+            return "Login False, Wrong Username or Pass";
         }
+
+        private MemberOutput GetMember(bool isEnable, string userName, string pass)
+        {
+            if (isEnable)
+            {
+                if (userName == null || userName.Trim() == "") return null;
+                if (pass == null || pass.Trim() == "") return null;
+                try
+                {
+                    MemberService client = new MemberService();
+                    MemberOutput userReturn = client.MemberbyUsername(userName);
+                    client.Dispose();
+                    if (userReturn.UserName == userName && userReturn.Password == pass) return userReturn;
+                }
+                catch (System.Exception)
+                {
+                    return null;
+                }
+            }
+            return null;
+        }
+
     }
 }

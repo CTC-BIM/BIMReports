@@ -62,5 +62,15 @@ namespace BIMReports.Properties {
                 return ((string)(this["BIMReports_com_cbimtech_TimesheetServices_TimesheetService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://services.cbimtech.com/WebServices/FilesUploadService.asmx")]
+        public string BIMReports_com_cbimtech_FilesServices_FilesUploadService {
+            get {
+                return ((string)(this["BIMReports_com_cbimtech_FilesServices_FilesUploadService"]));
+            }
+        }
     }
 }

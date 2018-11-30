@@ -75,14 +75,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\IProgramDependencyProperty.cs" />
+    <Compile Include="Forms\IProgramDependencyProperty1.cs" />
     <Compile Include="Forms\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainProgram.xaml.cs">
-      <DependentUpon>MainProgram.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Program.xaml.cs">
       <DependentUpon>Program.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels.cs" />
+    <Compile Include="Web References\com.cbimtech.FilesServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\com.cbimtech.MemberServices\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -105,10 +110,6 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Page Include="Forms\Login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Forms\MainProgram.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,6 +157,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Web References\com.cbimtech.FilesServices\FilesUploadService.wsdl" />
+    <None Include="Web References\com.cbimtech.FilesServices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\com.cbimtech.MemberServices\MemberOutput.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -190,7 +196,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -209,6 +217,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>BIMReports_localhost_UploadFile_FilesUploadService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://services.cbimtech.com/WebServices/FilesUploadService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.cbimtech.FilesServices\</RelPath>
+      <UpdateFromURL>http://services.cbimtech.com/WebServices/FilesUploadService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BIMReports_com_cbimtech_FilesServices_FilesUploadService</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://services.cbimtech.com/WebServices/MemberService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -341,6 +360,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\UserImg\Trong Luat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.cbimtech.FilesServices\FilesUploadService.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
