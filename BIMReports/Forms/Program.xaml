@@ -23,7 +23,7 @@
             <Grid DockPanel.Dock="Right" MaxWidth="50">
                 <Image Name="imgOption" HorizontalAlignment="Right" Grid.Row="2" MaxHeight="20" Margin="0,0,0,0" gif:ImageBehavior.RepeatBehavior="5x"  gif:ImageBehavior.AnimatedSource="/BIMReports;component/Resources/Icons/lg.triple-gears-loading-icon.gif" />
             </Grid>
-            
+
         </WrapPanel>
         <!--End Top Menu-->
 
@@ -40,8 +40,9 @@
                 <!--Report-->
                 <RowDefinition Height="60"/>
                 <!--Clash detection-->
+                <RowDefinition Height="60"/>
+                <!--Logout-->
                 <RowDefinition Height="15"/>
-                
             </Grid.RowDefinitions>
             <!--User Image-->
             <Grid Grid.Row="0">
@@ -60,14 +61,13 @@
                         <ColumnDefinition Width="90"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Name="txtUserID" Grid.Column="0" TextBlock.Foreground="Red" Margin="10,0,0,0" HorizontalAlignment="Left" Visibility="Visible">ID</TextBlock>
-                  <TextBox Name="txtUserName" Grid.Column="1" TextBlock.Foreground="Red" Margin="10,0,0,0" HorizontalAlignment="Center" Background="Black">
-                  </TextBox>  
+                    <TextBox Name="txtUserName" Grid.Column="1" TextBlock.Foreground="Red" Margin="10,0,0,0" HorizontalAlignment="Center" Background="Black">
+                    </TextBox>
                 </Grid>
-                
             </Grid>
 
             <!--DashBoard Button -->
-            <Button Grid.Row="1" Margin="0,5,0,0" Width="150" BorderBrush="Black" Background="Black" FocusVisualStyle="{DynamicResource MouseOverButton}">
+            <Button x:Name="cmdDashboard" Grid.Row="1" Margin="0,5,0,0" Width="150" BorderBrush="Black" Background="Black" FocusVisualStyle="{DynamicResource MouseOverButton}" Click="CmdDashboard_Click">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30"/>
@@ -79,7 +79,7 @@
             </Button>
 
             <!--Todo Button -->
-            <Button Grid.Row="2" Margin="0,5,0,0" Width="150" BorderBrush="Black" Background="Black" FocusVisualStyle="{DynamicResource MouseOverButton}">
+            <Button x:Name="cmdTodoList" Grid.Row="2" Margin="0,5,0,0" Width="150" BorderBrush="Black" Background="Black" FocusVisualStyle="{DynamicResource MouseOverButton}" Click="CmdTodoList_Click">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30"/>
@@ -91,7 +91,7 @@
             </Button>
 
             <!--Report Button -->
-            <Button Background="Black" Grid.Row="3" Margin="0,5,0,0" Width="150" BorderBrush="Black">
+            <Button x:Name="cmdReport" Background="Black" Grid.Row="3" Margin="0,5,0,0" Width="150" BorderBrush="Black" Click="CmdReport_Click">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30"/>
@@ -103,7 +103,7 @@
             </Button>
 
             <!--Clash Button -->
-            <Button Background="Black" Grid.Row="4" Margin="0,5,0,0" Width="150" BorderBrush="Black">
+            <Button x:Name="cmdClashDetect" Background="Black" Grid.Row="4" Margin="0,5,0,0" Width="150" BorderBrush="Black" Click="CmdClashDetect_Click">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30"/>
@@ -114,20 +114,62 @@
                 </Grid>
             </Button>
 
+            <!--Logout -->
+            <Button x:Name="cmdLogout" Background="Black" Grid.Row="4" Margin="0,5,0,0" Width="150" BorderBrush="Black" Click="CmdLogout_Click">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Grid.Row="0" Source="/BIMReports;component/Resources/Icons/dark/appbar.reply.people.png"/>
+                    <TextBlock Grid.Column="1" TextBlock.Foreground="White" Margin="10,0,0,0" VerticalAlignment="Center">Logout</TextBlock>
+                </Grid>
+            </Button>
+            
         </Grid>
         <!--End Left Panel-->
 
         <!--3. StatusBar-->
-        <StatusBar DockPanel.Dock="Bottom" Background="DarkKhaki"  Height="20" VerticalAlignment="Bottom">
-            <Label Name="lblStatus" TextBlock.Foreground="Black"></Label>
+        <StatusBar DockPanel.Dock="Bottom" Background="LightGray"  Height="30" HorizontalContentAlignment="Center">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition MaxWidth="200"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+                <StatusBarItem Grid.Column="0">
+                <TextBlock Name="lblStatus">Ready</TextBlock>
+                </StatusBarItem>
+            <StatusBarItem Grid.Column="1" MaxWidth="300" HorizontalAlignment="Left">
+                <TextBlock Name="lblCurSelect" HorizontalAlignment="Right">45 reports</TextBlock>
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="2">
+                <Button Name="cmdRefresh" Click="CmdRefresh_Click">
+                     <Image Source="/BIMReports;component/Resources/Icons/light/appbar.refresh.png" />
+                </Button>
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="3">
+                <ProgressBar Name="statusProcessbar" Grid.Column="2" Value="30" Height="7" Width="250" Margin="0,0,0,0" Background="White" Foreground="#FF486170"></ProgressBar>
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="4" TextBlock.FontSize="9" Width="100">
+                <TextBlock Name="lblConnect" HorizontalAlignment="Right">Connected</TextBlock>
+            </StatusBarItem>
+           
         </StatusBar>
         <!--End StatusBar-->
 
         <!--Main Content-->
         <Grid>
-            <TabControl HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" FontSize="11">
+            <TabControl x:Name="tabMainContent" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" FontSize="11">
                 <!--Dashboard Tab Content-->
-                <TabItem Header="Dashboard">
+                <TabItem Name="tabItemDashboard" Header="Dashboard">
                     <Grid Background="#FFE5E5E5">
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>
@@ -176,7 +218,7 @@
                 <!-- End Dashboard Content-->
 
                 <!--Report Content-->
-                <TabItem Header="Todolist">
+                <TabItem Name="tabItemTodoList" Header="Todolist">
                     <Grid Background="#FFE5E5E5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -201,13 +243,13 @@
                 <!--End Report Content-->
 
                 <!--Report Content-->
-                <TabItem Header="Report">
+                <TabItem Name="tabItemReport" Header="Report">
                     <Grid Background="#FFE5E5E5">
                         <!--Report Content - columns-->
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200"/>
                             <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>                        
+                        </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0" Background="FloralWhite">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="30"/>
@@ -223,13 +265,10 @@
                                 <TreeView Name="tvProjectTreeView" HorizontalAlignment="Left" Height="350" Margin="10,40,0,0" VerticalAlignment="Top" Width="102"/>
                             </Grid>
                         </Grid>
-                        
-                        
-
                     </Grid>
                 </TabItem>
                 <!--End Report Content-->
-                <TabItem Header="Clash detection">
+                <TabItem Name="tabItemClash" Header="Clash detection">
                     <Grid Background="#FFE5E5E5"/>
                 </TabItem>
 

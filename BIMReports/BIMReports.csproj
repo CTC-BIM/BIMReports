@@ -364,5 +364,14 @@
   <ItemGroup>
     <None Include="Web References\com.cbimtech.FilesServices\FilesUploadService.disco" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\dark\appbar.refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\light\appbar.refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\dark\appbar.reply.people.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

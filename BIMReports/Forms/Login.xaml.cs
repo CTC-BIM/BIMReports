@@ -1,5 +1,4 @@
 ﻿using BIMReports.com.cbimtech.MemberServices;
-using BIMReports.Models;
 using System.Windows;
 using System.Windows.Input;
 
@@ -34,6 +33,8 @@ namespace BIMReports.Forms
             MemberOutput member = GetMember(true, userName, pass);
             if (member != null)
             {
+
+
                 //Đóng cửa sổ Login
                 WindowCollection windowCollection = new WindowCollection();
                 windowCollection = App.Current.Windows;
@@ -44,15 +45,21 @@ namespace BIMReports.Forms
                     {
                         //MessageBox.Show("Chào mừng bạn " + member.SoftName, "BIMreport");
                         //Mở chương trình chính
-                        Program mainPrograme = new Program();
+                        Program mainPrograme = new Program()
+                        {
+                            //Cách mới tạo DP và Set value cho DP
+                            MemberLoginID = member.ID
+                        };                      
+                        mainPrograme.MemberLoginID = member.ID;
+
+                        //Cách cũ - gán giá trị 
                         mainPrograme.txtUserName.Text = member.SoftName;
-                        mainPrograme.lblStatus.Content = member.UserName;
-                        item.Close();
-                        //mainPrograme.SetValue(, member.SoftName);
-                        //mainPrograme.txtUserName.Text = member.SoftName;
+                        mainPrograme.lblStatus.Text = member.UserName;
                         mainPrograme.txtUserID.Text = member.ID.ToString();
-                        mainPrograme.DataContext = member;
+
+                        item.Close();                        
                         mainPrograme.ShowDialog();
+
                         return "Login OK";
                     }
                 }
