@@ -7,19 +7,52 @@
         xmlns:local="clr-namespace:BIMReports.Forms"
         mc:Ignorable="d"
         Name="frmLogin"
-        Title="" Height="223" Width="395">
-    <Grid Margin="0,0,0,0">
-        <Image Name="Logo" HorizontalAlignment="Left" Height="22" Margin="331,10,0,0" VerticalAlignment="Top" Width="46" Source="/BIMReports;component/Resources/CTClogo.png" RenderTransformOrigin="-0.809,0.721"/>
-        <Grid Margin="0,0,0,0" Grid.ColumnSpan="2">
-            <Image HorizontalAlignment="Left" Height="64" Margin="292,72,0,0" VerticalAlignment="Top" Width="66" Source="/BIMReports;component/Resources/Icons/iconfinder_Chuzzle_99907.ico" MouseDown="Image_MouseDown">
-            </Image>
-            <Image HorizontalAlignment="Left" Height="29" Margin="91,107,0,0" VerticalAlignment="Top" Width="37" Source="/BIMReports;component/Resources/Icons/iconfinder_Security_Approved_100127.ico"/>
-            <TextBox Name="txtUserName" HorizontalAlignment="Left" Height="30" Margin="96,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191"/>
-            <PasswordBox Name="txtPass" HorizontalAlignment="Left" Margin="123,107,0,0" VerticalAlignment="Top" Width="164" Height="29"/>
-            <Image gif:ImageBehavior.RepeatBehavior="100x" gif:ImageBehavior.AnimatedSource="/BIMReports;component/Resources/Icons/Sadman.gif" HorizontalAlignment="Left" Height="126" Margin="-22,28,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.455,0.169"/>
-            <Label Name="lblStatus" HorizontalAlignment="Left" Margin="96,141,0,0" VerticalAlignment="Top" Width="191"/>
+        Title="" Height="230" Width="400">
+    <DockPanel Margin="0,0,0,0">
+        <DockPanel.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FF7787CB" Offset="1"/>
+                <GradientStop Color="#FF98A4D1" Offset="0.328"/>
+                <GradientStop Color="#FF3F91D4" Offset="0.559"/>
+            </LinearGradientBrush>
+        </DockPanel.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Image Name="Logo" HorizontalAlignment="Left" Height="62" VerticalAlignment="Center" Width="164" Source="/BIMReports;component/Resources/CTClogo.png" RenderTransformOrigin="-0.809,0.721" Margin="121,0,0,0"/>
+            </Grid>
+            <Grid Margin="0,0,0,0" Grid.Row="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Height="50" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalAlignment="Left" Margin="10,-16,0,16" Source="/BIMReports;component/Resources/Icons/dark/appbar.tux.png"/>
+                    <TextBox Name="txtUserName" HorizontalAlignment="Left" Height="25" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="164" Margin="76,-4,0,0" Grid.ColumnSpan="2"/>
 
+                    <Image HorizontalAlignment="Left" Margin="16,25,0,-14" Height="39" VerticalAlignment="Top" Width="44" Source="/BIMReports;component/Resources/Icons/dark/appbar.unlock.png"/>
+                    <PasswordBox Name="txtPass" Margin="76,32,0,-6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Height="24" Grid.ColumnSpan="2" KeyDown="TxtPass_KeyDown" />
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Image gif:ImageBehavior.RepeatBehavior="100x" gif:ImageBehavior.AnimatedSource="/BIMReports;component/Resources/Icons/Sadman.gif" HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.455,0.169"  MouseDown="Image_MouseDown"/>
+
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Label Name="lblStatus" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="191" Margin="77,60,-18,-27" FontStyle="Italic" Background="{x:Null}" Foreground="#FFCEE827"/>
+                </Grid>
+
+
+            </Grid>
         </Grid>
-    </Grid>
+    </DockPanel>
 
 </Window>

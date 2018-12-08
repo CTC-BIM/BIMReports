@@ -276,6 +276,8 @@ namespace BIMReports.com.cbimtech.MemberServices {
         
         private string userStatusField;
         
+        private string imageField;
+        
         /// <remarks/>
         public int ID {
             get {
@@ -343,6 +345,16 @@ namespace BIMReports.com.cbimtech.MemberServices {
             }
             set {
                 this.userStatusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Image {
+            get {
+                return this.imageField;
+            }
+            set {
+                this.imageField = value;
             }
         }
     }

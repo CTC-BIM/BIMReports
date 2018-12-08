@@ -61,7 +61,7 @@
                         <ColumnDefinition Width="90"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Name="txtUserID" Grid.Column="0" TextBlock.Foreground="Red" Margin="10,0,0,0" HorizontalAlignment="Left" Visibility="Visible">ID</TextBlock>
-                    <TextBox Name="txtUserName" Grid.Column="1" TextBlock.Foreground="Red" Margin="10,0,0,0" HorizontalAlignment="Center" Background="Black">
+                    <TextBox Name="txtUserName" Grid.Column="1" Background="Black" BorderBrush="Black" TextBlock.Foreground="Red" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="11">
                     </TextBox>
                 </Grid>
             </Grid>
@@ -125,7 +125,7 @@
                     <TextBlock Grid.Column="1" TextBlock.Foreground="White" Margin="10,0,0,0" VerticalAlignment="Center">Logout</TextBlock>
                 </Grid>
             </Button>
-            
+
         </Grid>
         <!--End Left Panel-->
 
@@ -143,25 +143,31 @@
                         </Grid.ColumnDefinitions>
                     </Grid>
                 </ItemsPanelTemplate>
+
             </StatusBar.ItemsPanel>
-                <StatusBarItem Grid.Column="0">
-                <TextBlock Name="lblStatus">Ready</TextBlock>
-                </StatusBarItem>
+            <StatusBarItem Grid.Column="0">
+                <TextBlock Name="lblStatus1">Ready</TextBlock>
+            </StatusBarItem>
+
             <StatusBarItem Grid.Column="1" MaxWidth="300" HorizontalAlignment="Left">
-                <TextBlock Name="lblCurSelect" HorizontalAlignment="Right">45 reports</TextBlock>
+                <TextBlock Name="lblStatus2" HorizontalAlignment="Right">45 reports</TextBlock>
             </StatusBarItem>
+
             <StatusBarItem Grid.Column="2">
-                <Button Name="cmdRefresh" Click="CmdRefresh_Click">
-                     <Image Source="/BIMReports;component/Resources/Icons/light/appbar.refresh.png" />
-                </Button>
-            </StatusBarItem>
-            <StatusBarItem Grid.Column="3">
                 <ProgressBar Name="statusProcessbar" Grid.Column="2" Value="30" Height="7" Width="250" Margin="0,0,0,0" Background="White" Foreground="#FF486170"></ProgressBar>
             </StatusBarItem>
-            <StatusBarItem Grid.Column="4" TextBlock.FontSize="9" Width="100">
+
+            <StatusBarItem Grid.Column="3" TextBlock.FontSize="9" Width="100">
                 <TextBlock Name="lblConnect" HorizontalAlignment="Right">Connected</TextBlock>
             </StatusBarItem>
-           
+
+            <StatusBarItem Grid.Column="4">
+                <Button Name="cmdRefresh" Click="CmdRefresh_Click" BorderBrush="LightGray" Background="LightGray">
+                    <Image Source="/BIMReports;component/Resources/Icons/light/appbar.refresh.png" />
+                </Button>
+            </StatusBarItem>
+
+
         </StatusBar>
         <!--End StatusBar-->
 
@@ -250,19 +256,29 @@
                             <ColumnDefinition Width="200"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
+                        <!--Column 0-->
                         <Grid Grid.Column="0" Background="FloralWhite">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="30"/>
-                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="250"/>
+                                <RowDefinition/>
                             </Grid.RowDefinitions>
+                            <!--Tree view-->
+                            <Grid Grid.Row="0" Height="250">
+                                <Label Content="My Projects" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top"/>
+                                <TreeView BorderBrush="WhiteSmoke" Name="tvProjectTreeView" Background="LightSlateGray" HorizontalAlignment="Left" Height="200" Margin="5,25,0,0" VerticalAlignment="Top" Width="190" SelectedItemChanged="TvProjectTreeView_SelectedItemChanged">
+                                    <TreeViewItem x:Name="tviOngoing" Header="Ongoing"/>
+                                    <TreeViewItem x:Name="tviPause" Header="Pause"/>
+                                    <TreeViewItem x:Name="tviFinish" Header="Finish"/>
+                                </TreeView>
+                            </Grid>
+                        </Grid>
+                        
+                        <!--Column 1-->
+                        <Grid Grid.Column="1">
                             <!--Project List-->
                             <Grid Grid.Row="0" Background="White">
-                                <Label Content="Project" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Center"/>
-                                <ComboBox Name="cmbMyProject" IsTextSearchEnabled="True" TextBlock.Foreground="Black" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Center" Width="140"/>
-                            </Grid>
-                            <Grid Grid.Row="1" Background="Coral">
-                                <Label Content="Project Tree" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                                <TreeView Name="tvProjectTreeView" HorizontalAlignment="Left" Height="350" Margin="10,40,0,0" VerticalAlignment="Top" Width="102"/>
+                                <Label Content="Project" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Top"/>
+                                <ComboBox Name="cmbMyProject" IsTextSearchEnabled="True" TextBlock.Foreground="Black" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Top" Width="140"/>
                             </Grid>
                         </Grid>
                     </Grid>

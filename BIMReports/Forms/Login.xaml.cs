@@ -1,6 +1,8 @@
 ﻿using BIMReports.com.cbimtech.MemberServices;
+using System;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace BIMReports.Forms
 {
@@ -23,18 +25,36 @@ namespace BIMReports.Forms
         private string LoginCheck()
         {
             //RUN
-            //string userName = txtUserName.Text;
-            //string pass = txtPass.Password.ToString();
+            string userName = "";
+            string pass = "";
 
-            //TEST
-            string userName = "nhantc";
-            string pass = "123";
+            lblStatus.Content = "Connecting server";
+
+            if (txtUserName.Text == null || txtUserName.Text.Trim() == "")
+            {
+                userName = "nhantc";
+            }
+            else
+            {
+                userName = txtUserName.Text;
+            }
+            if (txtPass.Password == null || txtPass.Password.Trim() == "")
+            {
+                pass = "123";
+            }
+            else
+            {
+                pass = txtPass.Password.ToString();
+            }
+
+
+            string imageUserName = "";
+            string pathImage = @"pack://application:,,,/BIMReports;component/Resources/UserImg/";
+
 
             MemberOutput member = GetMember(true, userName, pass);
             if (member != null)
             {
-
-
                 //Đóng cửa sổ Login
                 WindowCollection windowCollection = new WindowCollection();
                 windowCollection = App.Current.Windows;
@@ -49,15 +69,20 @@ namespace BIMReports.Forms
                         {
                             //Cách mới tạo DP và Set value cho DP
                             MemberLoginID = member.ID
-                        };                      
+                        };
                         mainPrograme.MemberLoginID = member.ID;
 
                         //Cách cũ - gán giá trị 
                         mainPrograme.txtUserName.Text = member.SoftName;
-                        mainPrograme.lblStatus.Text = member.UserName;
+                        mainPrograme.lblStatus1.Text = member.UserName;
                         mainPrograme.txtUserID.Text = member.ID.ToString();
 
-                        item.Close();                        
+                        //set image
+                        imageUserName = member.Image; // gán imageName tìm được vào ImageName
+                        string fullimagePath = pathImage + imageUserName; //FullPath tìm tới Image                   
+                        mainPrograme.imgUser.ImageSource = new BitmapImage(new Uri(fullimagePath));//Gán ImageUser vào Window mới
+
+                        item.Close();
                         mainPrograme.ShowDialog();
 
                         return "Login OK";
@@ -88,5 +113,9 @@ namespace BIMReports.Forms
             return null;
         }
 
+        private void TxtPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            LoginCheck();
+        }
     }
 }

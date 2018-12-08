@@ -74,6 +74,35 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="TimDuAnTheoMemberID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimDuAnTheoMemberIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimDuAnTheoMemberIDResult" type="tns:ArrayOfDuAnOutput" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimDuAnTheoMemIDStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="projectState" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimDuAnTheoMemIDStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimDuAnTheoMemIDStatusResult" type="tns:ArrayOfDuAnOutput" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetProjectListSoapIn">
@@ -100,6 +129,18 @@
   <wsdl:message name="TimDuAnTheoScopeSoapOut">
     <wsdl:part name="parameters" element="tns:TimDuAnTheoScopeResponse" />
   </wsdl:message>
+  <wsdl:message name="TimDuAnTheoMemberIDSoapIn">
+    <wsdl:part name="parameters" element="tns:TimDuAnTheoMemberID" />
+  </wsdl:message>
+  <wsdl:message name="TimDuAnTheoMemberIDSoapOut">
+    <wsdl:part name="parameters" element="tns:TimDuAnTheoMemberIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimDuAnTheoMemIDStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:TimDuAnTheoMemIDStatus" />
+  </wsdl:message>
+  <wsdl:message name="TimDuAnTheoMemIDStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:TimDuAnTheoMemIDStatusResponse" />
+  </wsdl:message>
   <wsdl:portType name="ProjectServiceSoap">
     <wsdl:operation name="GetProjectList">
       <wsdl:input message="tns:GetProjectListSoapIn" />
@@ -116,6 +157,14 @@
     <wsdl:operation name="TimDuAnTheoScope">
       <wsdl:input message="tns:TimDuAnTheoScopeSoapIn" />
       <wsdl:output message="tns:TimDuAnTheoScopeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoMemberID">
+      <wsdl:input message="tns:TimDuAnTheoMemberIDSoapIn" />
+      <wsdl:output message="tns:TimDuAnTheoMemberIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoMemIDStatus">
+      <wsdl:input message="tns:TimDuAnTheoMemIDStatusSoapIn" />
+      <wsdl:output message="tns:TimDuAnTheoMemIDStatusSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ProjectServiceSoap" type="tns:ProjectServiceSoap">
@@ -156,6 +205,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoMemberID">
+      <soap:operation soapAction="http://services.cbimtech.com/WebServices/TimDuAnTheoMemberID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoMemIDStatus">
+      <soap:operation soapAction="http://services.cbimtech.com/WebServices/TimDuAnTheoMemIDStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ProjectServiceSoap12" type="tns:ProjectServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -188,6 +255,24 @@
     </wsdl:operation>
     <wsdl:operation name="TimDuAnTheoScope">
       <soap12:operation soapAction="http://services.cbimtech.com/WebServices/TimDuAnTheoScope" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoMemberID">
+      <soap12:operation soapAction="http://services.cbimtech.com/WebServices/TimDuAnTheoMemberID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimDuAnTheoMemIDStatus">
+      <soap12:operation soapAction="http://services.cbimtech.com/WebServices/TimDuAnTheoMemIDStatus" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

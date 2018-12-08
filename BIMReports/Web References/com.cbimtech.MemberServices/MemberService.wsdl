@@ -26,6 +26,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Department" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="UserStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="MemberbyID">

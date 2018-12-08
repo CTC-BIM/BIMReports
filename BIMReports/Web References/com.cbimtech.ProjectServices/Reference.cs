@@ -37,6 +37,10 @@ namespace BIMReports.com.cbimtech.ProjectServices {
         
         private System.Threading.SendOrPostCallback TimDuAnTheoScopeOperationCompleted;
         
+        private System.Threading.SendOrPostCallback TimDuAnTheoMemberIDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback TimDuAnTheoMemIDStatusOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -86,6 +90,12 @@ namespace BIMReports.com.cbimtech.ProjectServices {
         
         /// <remarks/>
         public event TimDuAnTheoScopeCompletedEventHandler TimDuAnTheoScopeCompleted;
+        
+        /// <remarks/>
+        public event TimDuAnTheoMemberIDCompletedEventHandler TimDuAnTheoMemberIDCompleted;
+        
+        /// <remarks/>
+        public event TimDuAnTheoMemIDStatusCompletedEventHandler TimDuAnTheoMemIDStatusCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://services.cbimtech.com/WebServices/GetProjectList", RequestNamespace="http://services.cbimtech.com/WebServices/", ResponseNamespace="http://services.cbimtech.com/WebServices/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -198,6 +208,66 @@ namespace BIMReports.com.cbimtech.ProjectServices {
             if ((this.TimDuAnTheoScopeCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.TimDuAnTheoScopeCompleted(this, new TimDuAnTheoScopeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://services.cbimtech.com/WebServices/TimDuAnTheoMemberID", RequestNamespace="http://services.cbimtech.com/WebServices/", ResponseNamespace="http://services.cbimtech.com/WebServices/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public DuAnOutput[] TimDuAnTheoMemberID(int memberID) {
+            object[] results = this.Invoke("TimDuAnTheoMemberID", new object[] {
+                        memberID});
+            return ((DuAnOutput[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void TimDuAnTheoMemberIDAsync(int memberID) {
+            this.TimDuAnTheoMemberIDAsync(memberID, null);
+        }
+        
+        /// <remarks/>
+        public void TimDuAnTheoMemberIDAsync(int memberID, object userState) {
+            if ((this.TimDuAnTheoMemberIDOperationCompleted == null)) {
+                this.TimDuAnTheoMemberIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTimDuAnTheoMemberIDOperationCompleted);
+            }
+            this.InvokeAsync("TimDuAnTheoMemberID", new object[] {
+                        memberID}, this.TimDuAnTheoMemberIDOperationCompleted, userState);
+        }
+        
+        private void OnTimDuAnTheoMemberIDOperationCompleted(object arg) {
+            if ((this.TimDuAnTheoMemberIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TimDuAnTheoMemberIDCompleted(this, new TimDuAnTheoMemberIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://services.cbimtech.com/WebServices/TimDuAnTheoMemIDStatus", RequestNamespace="http://services.cbimtech.com/WebServices/", ResponseNamespace="http://services.cbimtech.com/WebServices/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public DuAnOutput[] TimDuAnTheoMemIDStatus(int memberID, string projectState) {
+            object[] results = this.Invoke("TimDuAnTheoMemIDStatus", new object[] {
+                        memberID,
+                        projectState});
+            return ((DuAnOutput[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void TimDuAnTheoMemIDStatusAsync(int memberID, string projectState) {
+            this.TimDuAnTheoMemIDStatusAsync(memberID, projectState, null);
+        }
+        
+        /// <remarks/>
+        public void TimDuAnTheoMemIDStatusAsync(int memberID, string projectState, object userState) {
+            if ((this.TimDuAnTheoMemIDStatusOperationCompleted == null)) {
+                this.TimDuAnTheoMemIDStatusOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTimDuAnTheoMemIDStatusOperationCompleted);
+            }
+            this.InvokeAsync("TimDuAnTheoMemIDStatus", new object[] {
+                        memberID,
+                        projectState}, this.TimDuAnTheoMemIDStatusOperationCompleted, userState);
+        }
+        
+        private void OnTimDuAnTheoMemIDStatusOperationCompleted(object arg) {
+            if ((this.TimDuAnTheoMemIDStatusCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TimDuAnTheoMemIDStatusCompleted(this, new TimDuAnTheoMemIDStatusCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -452,6 +522,58 @@ namespace BIMReports.com.cbimtech.ProjectServices {
         private object[] results;
         
         internal TimDuAnTheoScopeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public DuAnOutput[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((DuAnOutput[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void TimDuAnTheoMemberIDCompletedEventHandler(object sender, TimDuAnTheoMemberIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class TimDuAnTheoMemberIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal TimDuAnTheoMemberIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public DuAnOutput[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((DuAnOutput[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void TimDuAnTheoMemIDStatusCompletedEventHandler(object sender, TimDuAnTheoMemIDStatusCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class TimDuAnTheoMemIDStatusCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal TimDuAnTheoMemIDStatusCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

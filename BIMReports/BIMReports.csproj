@@ -38,17 +38,34 @@
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Presentation" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -84,6 +101,15 @@
       <DependentUpon>Program.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\DataModels.cs" />
+    <Compile Include="Pages\ClashDetect.xaml.cs">
+      <DependentUpon>ClashDetect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MembersReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MembersReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Web References\com.cbimtech.FilesServices\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -129,6 +155,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\ClashDetect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -151,6 +181,10 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MembersReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MembersReport.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -372,6 +406,39 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\dark\appbar.reply.people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\dark\appbar.tux.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\dark\appbar.unlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UserImg\AnhTuan.jpg" />
+    <Resource Include="Resources\UserImg\Chi Nhan.jpg" />
+    <Resource Include="Resources\UserImg\EdenNie.jpg" />
+    <Resource Include="Resources\UserImg\HoMinhThuong.jpg" />
+    <Resource Include="Resources\UserImg\HoMinhThuong.png" />
+    <Resource Include="Resources\UserImg\Huynh Tan Khai_kts.JPG" />
+    <Resource Include="Resources\UserImg\LySonThien.jpg" />
+    <Resource Include="Resources\UserImg\MaiKimThang.jpg" />
+    <Resource Include="Resources\UserImg\MinhNga.jpg" />
+    <Resource Include="Resources\UserImg\Nguyen Diep Long Thanh.jpg" />
+    <Resource Include="Resources\UserImg\Nguyen Phuong Loan.png" />
+    <Resource Include="Resources\UserImg\no-image-available.jpg" />
+    <Resource Include="Resources\UserImg\no-image.jpg" />
+    <Resource Include="Resources\UserImg\Thanh.png" />
+    <Resource Include="Resources\UserImg\Tran Duy Cuong.jpg" />
+    <Resource Include="Resources\UserImg\Tran Van Hoan.jpg" />
+    <Resource Include="Resources\UserImg\TranTuan.jpg" />
+    <Resource Include="Resources\UserImg\TranVuKy.jpg" />
+    <Resource Include="Resources\UserImg\Trong Luat.png" />
+    <Resource Include="Resources\UserImg\TrongDiep.jpg" />
+    <Resource Include="Resources\UserImg\Truong Giang.jpg" />
+    <Resource Include="Resources\UserImg\VietThang.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
