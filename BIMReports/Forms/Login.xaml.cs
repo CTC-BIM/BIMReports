@@ -115,7 +115,10 @@ namespace BIMReports.Forms
 
         private void TxtPass_KeyDown(object sender, KeyEventArgs e)
         {
-            LoginCheck();
+            if (e.Key == Key.Enter)
+            {
+                LoginCheck();
+            }
         }
     }
 }

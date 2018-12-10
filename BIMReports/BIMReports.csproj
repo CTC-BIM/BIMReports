@@ -14,6 +14,25 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>D:\01. Project\App Publish\BIMreports\10122018\</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://localhost:59530/report.cbimtech.com/</InstallUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +53,21 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Icons\R_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F9CD4251AB877678A84C1EEEABD64CB79BEE64F7</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>BIMReports_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
@@ -41,6 +75,12 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net45\MahApps.Metro.dll</HintPath>
     </Reference>
@@ -54,9 +94,12 @@
       <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Controls.Ribbon" />
     <Reference Include="System.Windows.Forms" />
@@ -97,10 +140,127 @@
     <Compile Include="Forms\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Program.xaml.cs">
       <DependentUpon>Program.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\AppVersion.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C01_DesignProject.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C02_BIMstaff.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C04_DMC_PMlist.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C05a_TargetDetail.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C05_BIMtarget.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C06a_ProjectType.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C06_ProjectType.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C07_CTCCompanyList.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C11_OutsourceList.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C12_SiteList.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C13_Location.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C14_Descipline.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C15_TimeSheet.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C16a_WorkTypeGroup.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C16_WorkType.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C17_CTCDepartment.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C18_CourseList.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C18_CourseList_Detail.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C19_SubContractList.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C20_StudentList.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C21_SubjectList.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C22_CheckList.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C23_Hinhthucdaotao.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C24_IssueList.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C25_BIM_RnDproject.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C27_Topic.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C28_NTP.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C29_MucTieuTraining.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C30_NTP_ProjectDetails.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C31_ProjectPhaseDetails.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C32_ProjectPhase.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C33_SolutionOffer.cs">
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataModels.cs" />
+    <Compile Include="Models\Timesheet.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Timesheet.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Timesheet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Timesheet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Timesheet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Timesheet.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ClashDetect.xaml.cs">
       <DependentUpon>ClashDetect.xaml</DependentUpon>
     </Compile>
@@ -136,6 +296,10 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Page Include="Forms\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,6 +350,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>MembersReport.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Models\Timesheet.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Timesheet.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BIMReports_TemporaryKey.pfx" />
+    <None Include="Models\Timesheet.edmx.diagram">
+      <DependentUpon>Timesheet.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -414,6 +586,7 @@
     <Resource Include="Resources\Icons\dark\appbar.unlock.png" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
@@ -439,6 +612,28 @@
     <Resource Include="Resources\UserImg\TrongDiep.jpg" />
     <Resource Include="Resources\UserImg\Truong Giang.jpg" />
     <Resource Include="Resources\UserImg\VietThang.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\R_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Timesheet.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Timesheet.Context.cs</LastGenOutput>
+      <DependentUpon>Timesheet.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Timesheet.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Timesheet.edmx</DependentUpon>
+      <LastGenOutput>Timesheet.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

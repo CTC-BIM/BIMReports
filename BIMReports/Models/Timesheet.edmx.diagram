@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="35e1645c786a470c8e4dc64111338ac0" Name="Diagram1">
+        <EntityTypeShape EntityType="BIMReports.Models.C01_DesignProject" Width="1.5" PointX="8.25" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C02_BIMstaff" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C04_DMC_PMlist" Width="1.5" PointX="3" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C05_BIMtarget" Width="1.5" PointX="11.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C05a_TargetDetail" Width="1.5" PointX="13.5" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C06_ProjectType" Width="1.5" PointX="10.5" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C06a_ProjectType" Width="1.5" PointX="6" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C07_CTCCompanyList" Width="1.5" PointX="6" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C11_OutsourceList" Width="1.5" PointX="6" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C12_SiteList" Width="1.5" PointX="6" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C13_Location" Width="1.5" PointX="6" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C14_Descipline" Width="1.5" PointX="0.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C15_TimeSheet" Width="1.5" PointX="5.25" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C16_WorkType" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C16a_WorkTypeGroup" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C17_CTCDepartment" Width="1.5" PointX="6" PointY="47.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C18_CourseList" Width="1.5" PointX="8.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C18_CourseList_Detail" Width="1.5" PointX="8.25" PointY="36.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C19_SubContractList" Width="1.5" PointX="3.75" PointY="51" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C20_StudentList" Width="1.5" PointX="6" PointY="50.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C21_SubjectList" Width="1.5" PointX="6" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C22_CheckList" Width="1.5" PointX="10.5" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C23_Hinhthucdaotao" Width="1.5" PointX="6" PointY="54.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C24_IssueList" Width="1.5" PointX="10.5" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C25_BIM_RnDproject" Width="1.5" PointX="5.25" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C27_Topic" Width="1.5" PointX="5.25" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C28_NTP" Width="1.5" PointX="11.25" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C29_MucTieuTraining" Width="1.5" PointX="6" PointY="57.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C30_NTP_ProjectDetails" Width="1.5" PointX="13.5" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C31_ProjectPhaseDetails" Width="1.5" PointX="13.5" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C32_ProjectPhase" Width="1.5" PointX="11.25" PointY="40.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIMReports.Models.C33_SolutionOffer" Width="1.5" PointX="12.75" PointY="34" IsExpanded="true" />
+        <AssociationConnector Association="BIMReports.Models.FK_01_DesignProject_04_DMC_PMlist" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_01_DesignProject_06a_ProjectType" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_01_DesignProject_11_OutsourceList" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_01_DesignProject_12_SiteList" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_01_DesignProject_13_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_05a_TargetDetail_01_DesignProject" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_06_ProjectType_01_DesignProject" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_15_TimeSheet_01_DesignProject" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_22_CheckList_01_DesignProject" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_24_Issue_01_DesignProject" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_30_NTP_ProjectDetails_01_DesignProject" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_31_ProjectPhaseDetails_01_DesignProject" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_02_BIMstaff_14_Descipline" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_15_TimeSheet_02_BIMstaff" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_18_CourseList_02_BIMstaff" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_25_BIM_RnDproject_02_BIMstaff" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_27_Topic_02_BIMstaff" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_04_DMC_PMlist_14_Descipline" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_05a_TargetDetail_05_BIMtarget1" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_18_CourseList_Detail_07_CTCCompanyList" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_18_CourseList_Detail_12_SiteList" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_15_TimeSheet_16a_WorkTypeGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_16_WorkType_16a_WorkTypeGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_18_CourseList_Detail_17_CTCDepartment" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_18_CourseList_21_SubjectList" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_18_CourseList_Detail_20_StudentList" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_18_CourseList_Detail_23_Hinhthucdaotao" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_18_CourseList_Detail_29_MucTieuTraining" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_20_StudentList_19_SubContractList" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_33_SolutionOffer_24_Issue" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_30_NTP_ProjectDetails_28_NTP" ManuallyRouted="false" />
+        <AssociationConnector Association="BIMReports.Models.FK_31_ProjectPhaseDetails_32_ProjectPhase" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BIMReports.Models.AppVersion" Width="1.5" PointX="0.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
